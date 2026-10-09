@@ -12,6 +12,14 @@ iOS counterpart to [mpv-android](https://github.com/mpv-android/mpv-android):
 same libmpv core, same dependency stack, ported to Apple's toolchain and
 Swift/SwiftUI instead of the NDK/JNI/Kotlin stack.
 
+### Library?
+
+mpv-ios is **not** a library/module (AAR) you can import into your app.
+
+If you'd like to use libmpv in your app you can use our code as inspiration.
+The important parts are [`MPVKit`](/MPVKit), [`MPViOSPlayer`](/mpv-ios-player).
+The MPVKit is built by [these scripts](buildscripts/).
+
 ## Contributing
 
 Contributions are welcome — see **[CONTRIBUTING.md](CONTRIBUTING.md)** for

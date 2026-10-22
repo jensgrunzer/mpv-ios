@@ -81,10 +81,13 @@ public struct MPVConfiguration {
         core.setOptionString("demuxer-max-bytes", "\(cacheSeconds * 1_000_000)")
         core.setOptionString("demuxer-readahead-secs", "\(cacheSeconds)")
 
-        if let dir = mpvConfigDirectory {
-            core.setOptionString("config-dir", dir.path)
-            core.setOptionString("config", "yes")
-        }
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let configDir = mpvConfigDirectory ?? documentsURL
+
+        core.setOptionString("config-dir", configDir.path)
+        core.setOptionString("config", "yes")
+        core.setOptionString("load-scripts", "yes")
+        
         if let dir = screenshotDirectory {
             core.setOptionString("screenshot-directory", dir.path)
         }

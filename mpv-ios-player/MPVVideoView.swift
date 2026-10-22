@@ -14,17 +14,13 @@ struct MPVVideoView: UIViewRepresentable {
             fatalError("MPVGLView failed to create an EAGLContext (OpenGLES3 unavailable on this device)")
         }
         view.backgroundColor = .black
-        if core.handle != nil {
-            do {
-                try view.attachRenderContext()
-            } catch {
-                // Surfaced as a delegate event in production rather than a
-                // hard crash — PlayerViewModel observes MPVCoreDelegate and
-                // will show an error state if render context creation fails.
-                print("MPVVideoView: attachRenderContext failed: \(error)")
-            }
-        } else {
-            print("MPVVideoView: core.handle is nil, skipping attachRenderContext")
+        do {
+            try view.attachRenderContext()
+        } catch {
+            // Surfaced as a delegate event in production rather than a
+            // hard crash — PlayerViewModel observes MPVCoreDelegate and
+            // will show an error state if render context creation fails.
+            print("MPVVideoView: attachRenderContext failed: \(error)")
         }
         pipCoordinator.configure(with: view)
         return view

@@ -59,7 +59,9 @@ public final class PlayerViewModel: ObservableObject {
     /// first place).
     private var pausedByInterruption = false
 
-    public init() {}
+    public init() {
+        start()
+    }
 
     // MARK: - Lifecycle
 

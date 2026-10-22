@@ -72,6 +72,20 @@ public final class PlayerViewModel: ObservableObject {
         guard !isInitialized else { return }
         isInitialized = true
 
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let scriptsDir = docs.appendingPathComponent("scripts")
+        let mpvConf = docs.appendingPathComponent("mpv.conf")
+
+        try? FileManager.default.createDirectory(at: scriptsDir, withIntermediateDirectories: true)
+
+        if !FileManager.default.fileExists(atPath: mpvConf.path) {
+            let initialConfig = """
+            # mpv-ios configuration file
+            # Options set here are automatically loaded on startup.
+            """
+            try? initialConfig.write(to: mpvConf, atomically: true, encoding: .utf8)
+        }
+
         do {
             try configureAudioSession()
 

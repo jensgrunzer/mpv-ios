@@ -22,6 +22,7 @@ struct MPVVideoView: UIViewRepresentable {
                 // hard crash — PlayerViewModel observes MPVCoreDelegate and
                 // will show an error state if render context creation fails.
                 print("MPVVideoView: attachRenderContext failed: \(error)")
+            }
         } else {
             print("MPVVideoView: core.handle is nil, skipping attachRenderContext")
         }

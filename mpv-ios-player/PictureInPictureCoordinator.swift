@@ -111,7 +111,7 @@ public final class PictureInPictureCoordinator: NSObject {
         // backgrounded while this player is on screen, matching
         // mpv-android's own "auto-enter PiP on home/recents" behavior
         // rather than requiring an explicit PiP button tap every time.
-        controller.canStartPictureInPictureAutomaticallyFromInline = true
+        controller.canStartPictureInPictureAutomaticallyFromInline = false //true will cause the app to remain active in the app switch menu if closed with down chevron
         // false (not true): true is documented for content where
         // scrubbing/seeking doesn't make sense (e.g. a live camera feed —
         // see Apple's own PiP camera-feed sample, which sets this true

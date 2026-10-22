@@ -65,5 +65,9 @@
 
 	<key>NSDocumentsFolderUsageDescription</key>
 	<string>Used to open and play video files you select.</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 </dict>
 </plist>

@@ -108,6 +108,7 @@ public final class PlayerViewModel: ObservableObject {
     /// ordering requirement (render context freed before core destroy).
     public func stop() {
         saveWatchLaterPosition()
+        core.stop()
         if let token = willResignActiveObserverToken {
             NotificationCenter.default.removeObserver(token)
             willResignActiveObserverToken = nil

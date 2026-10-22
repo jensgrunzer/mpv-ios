@@ -10,7 +10,7 @@ public struct MPVConfiguration {
     /// video/out/hwdec/hwdec_ios_gl.m via CVOpenGLESTextureCache), which
     /// gives zero-copy decode-to-texture. "no" disables hw decode entirely;
     /// "auto" lets mpv choose.
-    public var hwdec: String = "videotoolbox"
+    public var hwdec: String = "videotoolbox-copy" //output is solid blue with zero-copy
 
     /// GPU-next is mpv's modern rendering pipeline (libplacebo-backed).
     /// Recommended on Apple platforms since it has first-class Metal support.
